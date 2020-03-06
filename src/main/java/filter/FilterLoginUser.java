@@ -16,11 +16,11 @@ public class FilterLoginUser implements Filter {
     public void doFilter(ServletRequest req,
                          ServletResponse res,
                          FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest rq = (HttpServletRequest) req;
+        HttpServletRequest rqst = (HttpServletRequest) req;
         HttpServletResponse resp = (HttpServletResponse) res;
-        String role = (String) rq.getSession().getAttribute("role");
+        String role = (String) rqst.getSession().getAttribute("role");
         if (role == null) {
-            chain.doFilter(rq, resp);
+            chain.doFilter(rqst, resp);
         } else {
             switch (role) {
                 case ("user"):
