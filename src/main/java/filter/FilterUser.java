@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter("/admin/*")
-public class FilterAdminServlet implements Filter {
+@WebFilter("/user/*")
+public class FilterUser implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
@@ -19,7 +19,7 @@ public class FilterAdminServlet implements Filter {
         HttpServletRequest rqst = (HttpServletRequest) req;
         HttpServletResponse resp = (HttpServletResponse) res;
         String role = (String) rqst.getSession().getAttribute("role");
-        if (role.equals("admin")) {
+        if (role.equals("user") | role.equals("admin")) {
             chain.doFilter(rqst, resp);
         } else {
             resp.sendRedirect("/");
