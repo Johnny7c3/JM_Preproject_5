@@ -48,7 +48,6 @@
             <td></td>
             <td><input type="submit" value="Подтвердить изменения"></td>
         </tr>
-        </tr>
     </c:forEach>
     </table>
 </form>

@@ -22,7 +22,6 @@
             <td></td>
             <td><input type="submit" value="Войти"></td>
         </tr>
-        </tr>
     </table>
     <c:out value="${status}" default=""></c:out>
 </body>
