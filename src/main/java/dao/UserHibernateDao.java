@@ -13,7 +13,7 @@ import java.util.List;
 public class UserHibernateDao implements UserDao {
     private SessionFactory sessionFactory;
 
-    public void UserHibernateDao() {
+    public UserHibernateDao() {
         Configuration configuration = DBHelper.getInstance().getConfiguration();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
         builder.applySettings(configuration.getProperties());
@@ -39,8 +39,8 @@ public class UserHibernateDao implements UserDao {
             } catch (Exception ex) {
                 ex.printStackTrace();
                 if (trx != null) {
+                    trx.rollback();
                 }
-                trx.rollback();
             } finally {
                 session.close();
             }
