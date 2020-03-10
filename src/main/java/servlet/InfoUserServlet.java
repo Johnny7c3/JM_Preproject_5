@@ -23,8 +23,8 @@ public class InfoUserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req,
-                         HttpServletResponse res) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
         Long id = (Long) req.getSession().getAttribute("userId");
         List<User> user = new ArrayList<>();
         user.add(serv.getUserById(id));
@@ -33,8 +33,8 @@ public class InfoUserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req,
-                          HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         User updateUser = new User();
         updateUser.setId(Long.parseLong(req.getParameter("id")));

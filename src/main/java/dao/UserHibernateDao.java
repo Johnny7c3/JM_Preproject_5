@@ -36,8 +36,8 @@ public class UserHibernateDao implements UserDao {
                 trx = session.beginTransaction();
                 session.save(user);
                 trx.commit();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
                 if (trx != null) {
                 }
                 trx.rollback();

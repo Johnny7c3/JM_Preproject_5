@@ -19,8 +19,8 @@ public class DeleteUserServlet extends HttpServlet {
         serv = UserServiceImpl.getInstance();
     }
 
-    protected void doPost(HttpServletRequest req,
-                          HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
         Long id = Long.parseLong(req.getParameter("id"));
         serv.deleteUser(id);
         res.sendRedirect("/admin");
